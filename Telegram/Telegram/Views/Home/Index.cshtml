@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <p><strong>SYMBOL</strong></p>
+            <select class="symbol" name="state" style="width:200px">
+                @foreach (var item in ViewBag.LstSymbol as List
+                <Telegram.Helpers.Symbol>
+                    )
+                {
+                    <option value="@item.Code">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <p><strong>TYPE</strong></p>
+            <select class="type" name="state" style="width:200px">
+                <option value="BUY" class="text-success">BUY</option>
+                <option value="BUY">SELL</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" id="btnSubmit">SEND</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.symbol').select2();
+            $('.type').select2();
+        });
+
+        $(function () {
+        $("#btnSubmit").click(function () {
+            var symbol = $(".symbol").val();
+            var type = $(".type").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SendMessageAsync")',
+                data: '{symbol: ' + JSON.stringify(symbol) + ', type: ' + JSON.stringify(type) + '}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                },
+                error: function () {
+                    alert("Error submit");
+                }
+            });
+            return false;
+        });
+        });
+
+    </script>
+}
