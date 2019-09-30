@@ -25,7 +25,7 @@ namespace Telegram.Controllers
             string message = " \n\n\n";
             message += "\n\n\n*" + symbol + "*\n";
             message += "*" + type + "*\n";
-            message += "Điều kiện vào lệnh: Sau khi kết thúc nến hiện tại\n";
+            message += "Vào lệnh 5 phút, sau khi kết thúc nến hiện tại\n";
             message += "_" + DateTime.Now.ToString("dd/MM HH:mm:ss") + "_";
             await bot.SendTextMessageAsync(ChatId, message, Bot.Types.Enums.ParseMode.Markdown);
             return Json(new { Result = true, JsonRequestBehavior.AllowGet });

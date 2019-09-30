@@ -25,13 +25,14 @@ import random
 
 #Need change those api to yours
 c_info = {
-'c0': ('cody_client1', 1083515, '7e1da0642d08772e6f9663c64e71434f')
-#'c1': ('cody_client2', 1083515, '7e1da0642d08772e6f9663c64e71434f'),
-#'c2': ('cody_client3', 1083515, '7e1da0642d08772e6f9663c64e71434f'),
-#'c3': ('cody_client5', 1083515, '7e1da0642d08772e6f9663c64e71434f')
+'c0': ('cody_client1', 388159, 'b6337b1e003b7eax780fd2d77f7e0478'),
+'c1': ('cody_client2', 1083515, '7e1da0642d08772e6f9663c64e71434f')
+#'c3': ('cody_client5', 144783, 'bccb20ef33c1ccfc2ac18c9f3db7f30c'),
+#'c4': ('cody_client5', 135843, '777bebb1fd9b98eb2980fd1e7c3de9ab')
+
 }
 
-if c_info['c0'][1] == 388159:
+if c_info['c0'][1] == 388158:
    sys.exit('Need change api to yours')
 
 sour = 'https://t.me/tinhieu_pro_bogg'
@@ -110,6 +111,6 @@ while True:
             time.sleep(120)
 
         # CPU sleep 
-        time.sleep(random.randint(10, 30))
+        time.sleep(random.randint(60, 180))
         ind += 1
         db.set('start', ind)
